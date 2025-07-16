@@ -12,7 +12,10 @@ export class AgodaService {
     children: number,
     adults: number,
   ) {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+      headless: true,
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
     const batchSize = 4;
     const results: AgodaPriceResult[] = [];
 
