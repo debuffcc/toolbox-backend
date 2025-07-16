@@ -13,6 +13,9 @@ export class AgodaService {
     adults: number,
   ) {
     const browser = await puppeteer.launch({
+      executablePath:
+        process.env.PUPPETEER_EXECUTABLE_PATH ||
+        '/opt/render/.cache/puppeteer/chrome/linux-138.0.7204.94/chrome-linux64/chrome',
       headless: true,
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
     });
